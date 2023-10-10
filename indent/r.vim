@@ -237,6 +237,11 @@ function GetRIndent()
     return indent(indline)
   endif
 
+  " Custom logic for ggplot2 code indentation
+  if cline =~ '^\s*\+\s*$' && s:Get_paren_balance(pline, '(', ')') == 0
+    let ind = pind - shiftwidth()
+  endif
+
   " Find the first non blank line above the current line
   let lnum = s:Get_prev_line(clnum)
   " Hit the start of the file, use zero indent.
