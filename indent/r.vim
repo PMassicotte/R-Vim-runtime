@@ -238,6 +238,7 @@ function GetRIndent()
   endif
 
   " Custom logic for ggplot2 code indentation
+  echo "Hello, Vim!"
   if cline =~ '^\s*\+\s*$' && s:Get_paren_balance(pline, '(', ')') == 0
     let ind = pind - shiftwidth()
   endif
